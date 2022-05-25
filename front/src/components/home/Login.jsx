@@ -17,7 +17,6 @@ function Login() {
 
   function onSubmit(data) {
     doLogin(data).then((res) => {
-      console.log(res);
       if (res.status === 200) {
         setTimeout(() => {
           navigate("/films");
