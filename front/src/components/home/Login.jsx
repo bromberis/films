@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useGlobalUserContext, UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import "./Home.css";
 
 function Login() {
@@ -16,13 +17,31 @@ function Login() {
   let navigate = useNavigate();
 
   function onSubmit(data) {
-    doLogin(data).then((res) => {
-      if (res.status === 200) {
-        setTimeout(() => {
-          navigate("/films");
-        }, 1000);
-      }
-    });
+    doLogin(data)
+      .then((res) => {
+        let user = res.data.user;
+
+        swal({
+          text: "Pavyko prisijungti!",
+          icon: "success",
+          button: "Puiku",
+          timer: 5000,
+        });
+        if (res.status === 200) {
+          setTimeout(() => {
+            navigate("/films");
+          }, 1000);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        swal({
+          text: "Duomenys blogai suvesti, patikrinkite duomenis!",
+          icon: "error",
+          button: "Gerai",
+          timer: 2000,
+        });
+      });
   }
 
   return (
