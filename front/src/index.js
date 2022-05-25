@@ -10,7 +10,6 @@ import Films from "./components/films/Films";
 import Home from "./components/home/Home";
 import FilmsForm from "./components/films/FilmsForm";
 import { UserProvider } from "./components/context/UserContext";
-import ProtectedRoutes from "./components/ProtectedRoutes";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

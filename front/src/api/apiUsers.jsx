@@ -17,7 +17,6 @@ axiosUser.interceptors.response.use(
     if (res.status === 401) {
       window.location.href = "http://127.0.0.1:3005";
     }
-    console.error("Looks like there was a problem. Status Code: " + res.status);
     return Promise.reject(error);
   }
 );

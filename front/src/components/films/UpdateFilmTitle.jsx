@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { findFilmAndUpdate } from "../../api/library/UsersApi";
 import { useGlobalUserContext } from "../context/UserContext";
@@ -21,13 +21,12 @@ function UpdateFilmTitle(props) {
   };
 
   function onSubmit(data) {
-    console.log(category);
     const newObj = {
       category: category,
       date: date,
       name: UppercaseFirst(data.name),
     };
-    console.log(newObj);
+
     findFilmAndUpdate(newObj, userData._id, filmID).then(() => {
       refreshUserData(userData._id);
     });

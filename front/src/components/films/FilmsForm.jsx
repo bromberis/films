@@ -58,7 +58,6 @@ function FilmsForm() {
               minLength: 2,
               required: true,
               pattern:
-                // /^[a-ząčęėįšųūž|A-ZĄČĘĖĮŠŲŪŽ]+(?: [a-ząčęėįšųūž|A-ZĄČĘĖĮŠŲŪŽ]+)*$/,
                 /^[a-ząčęėįšųūž|A-ZĄČĘĖĮŠŲŪŽ]+(?: [a-ząčęėįšųūž|A-ZĄČĘĖĮŠŲŪŽ]+)*$/,
             })}
           />
@@ -76,12 +75,14 @@ function FilmsForm() {
             {...register("category", { required: true })}
           >
             <option value="Kita">Kita</option>
+            <option value="Komedija">Komedija</option>
+            <option value="Mistinis">Nuotykių</option>
             <option value="Drama">Drama</option>
             <option value="Romantinis">Romantinis</option>
             <option value="Veiksmo">Veiksmo</option>
             <option value="Mindfuck">Mindfuck</option>
             <option value="Vaikų">Vaikų</option>
-            <option value="Kita">Kita</option>
+            <option value="Fantastinis">Fantastinis</option>
           </select>
         </div>
         <button type="submit">Pridėti filmą</button>

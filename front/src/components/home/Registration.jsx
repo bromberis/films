@@ -16,7 +16,6 @@ function Registration() {
   function onSubmit(data) {
     createUser(data)
       .then((result) => {
-        console.log("Success:", result);
         swal({
           text: "Registracija sekminga, dabar galite prisijungti",
           icon: "success",
@@ -25,7 +24,6 @@ function Registration() {
         });
       })
       .catch((error) => {
-        console.error("Error:", error);
         swal({
           text: "Toks vartotojas jau egzistuoja",
           icon: "error",
@@ -74,7 +72,6 @@ function Registration() {
               validate: {
                 checkEmail: async (value) => {
                   let pass = await getEmail(value);
-                  console.log(pass, !pass);
                   return !pass;
                 },
               },

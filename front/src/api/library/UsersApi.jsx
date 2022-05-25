@@ -23,7 +23,6 @@ export async function getEmail(email) {
 }
 
 export async function loginUser(data) {
-  console.log(data);
   const res = await axiosUser.post(
     `/login?email=${data.email}&password=${data.password}`,
     JSON.stringify(data)
@@ -62,28 +61,24 @@ export async function createUserFilms(id, data) {
 }
 
 export async function findFilmAndUpdate(data, id, subID) {
-  const response = await axiosUser.patch(
-    `/${id}/films/upd/${subID}`,
-    JSON.stringify(data)
-  );
-  // .then((result) => {
-  //   console.log("Success:", result);
-  //   swal({
-  //     text: "Atnaujinta!",
-  //     icon: "success",
-  //     button: "Gerai",
-  //     timer: 2000,
-  //   });
-  // })
-  // .catch((error) => {
-  //   console.error("Error:", error);
-  //   swal({
-  //     text: "Klaida!",
-  //     icon: "error",
-  //     button: "Gerai",
-  //     timer: 2000,
-  //   });
-  // });
+  const response = await axiosUser
+    .patch(`/${id}/films/upd/${subID}`, JSON.stringify(data))
+    .then((result) => {
+      swal({
+        text: "Atnaujinta!",
+        icon: "success",
+        button: "Gerai",
+        timer: 2000,
+      });
+    })
+    .catch((error) => {
+      swal({
+        text: "Klaida!",
+        icon: "error",
+        button: "Gerai",
+        timer: 2000,
+      });
+    });
 
   return response;
 }

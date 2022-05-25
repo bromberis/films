@@ -1,10 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import {
-  getAllUsersData,
-  getAllUserFilms,
-  loginUser,
-  getUserById,
-} from "../../api/library/UsersApi";
+import { loginUser, getUserById } from "../../api/library/UsersApi";
 
 const UserContext = createContext();
 
@@ -25,13 +20,10 @@ const UserProvider = ({ children }) => {
   }
 
   async function doLogin(data) {
-    // console.log(data);
     let result = await loginUser(data).then((res) => {
-      // console.log(res.data);
       setUserData(res.data.user);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       localStorage.setItem("token", JSON.stringify(res.data.token));
-      // console.log(res.status);
       return res;
     });
     return result;
