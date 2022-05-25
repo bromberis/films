@@ -1,0 +1,15 @@
+.home-title {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.home-button,
+.home-input {
+  width: 40vw;
+  margin: 3px auto;
+  padding: 0.5rem;
+}
+
+.home-form {
+  margin-top: 3em;
+}
