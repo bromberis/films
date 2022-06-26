@@ -67,7 +67,7 @@ function UpdateFilmTitle(props) {
 
         {errors.name && (
           <p className="fs-4 text-danger fw-light text-center">
-            Būtinas laukelis, tik raidės, 2-50 simbolių
+            Būtinas laukelis, tik raidės, 2-50 simbolių.
           </p>
         )}
       </form>
